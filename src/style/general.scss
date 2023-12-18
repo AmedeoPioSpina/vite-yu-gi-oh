@@ -20,5 +20,36 @@ body{
     }
     main{
         background-color: $color-ground;
+        padding-bottom: 3rem;
+        section{
+            padding: 0 6rem;
+            div:first-child{
+                padding: 1.5rem 0;
+            }
+            div{
+                ul{
+                    background-color: white;
+                    list-style: none;
+                    padding: 2.7rem 0;
+                    gap: 1rem;
+                    li{
+                        background-color: $color-ground;
+                        img{
+                            width: 13.8rem;
+                            margin-bottom: 1rem;
+                        }
+                        h2{
+                            width: 13.8rem;
+                            font-size: 1.2rem;
+                            font-weight: bold;
+                            margin-bottom: 1rem;
+                        }
+                        p{
+                            font-size: 1.4rem;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

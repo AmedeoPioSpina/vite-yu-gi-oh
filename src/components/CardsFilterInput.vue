@@ -1,7 +1,7 @@
 <template lang="">
     <div>
         <form action="">
-            <select name="cards-race" id="cards-race">
+            <select name="cards-race" id="cards-race" v-model="selector">
                 <option value="Aqua">
                     Aqua
                 </option>
@@ -82,8 +82,33 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
+import { cardsList } from '../js/cardsList.js';
+
 export default {
-    name: "CardsFilterInput"
+    name: "CardsFilterInput",
+    data() {
+        return {
+            selector: "Zombie",
+            cardsList,
+        }
+    },
+    methods: {
+        axiosCardsFunc(raceName="Zombie"){
+            return axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&race=${raceName}`)
+            .then(resp => {
+                this.cardsList.cards= resp.data.data;
+                console.log(this.cardsList)
+            })
+            .catch(err => console.warn(err))
+        }
+    },
+    created() {
+        this.axiosCardsFunc();
+    },
+    updated() {
+        this.axiosCardsFunc(this.selector);
+    }
 }
 </script>
 <style lang="scss">
