@@ -5,7 +5,7 @@
             {{ cardInfo.name }}
         </h2>
         <p class="text-center">
-            {{cardInfo.race}}
+            {{cardInfo.archetype}}
         </p>
     </li>
 </template>

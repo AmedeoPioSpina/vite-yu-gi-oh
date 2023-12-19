@@ -1,8 +1,8 @@
 <template lang="">
     <main>
         <section>
-            <CardsFilterInput />
-            <CardsContainer />
+            <CardsFilterInput @cardsInfoList="moveDataFunc"/>
+            <CardsContainer :cardsList="cardsInfoList"/>
         </section>
     </main>
 </template>
@@ -18,8 +18,14 @@ export default {
     },
     data() {
         return {
+            cardsInfoList: [],
         }
-    }
+    },
+    methods: {
+        moveDataFunc( list ){
+            this.cardsInfoList = list;
+        }
+    },
 }
 </script>
 <style lang="scss">
